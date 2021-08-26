@@ -67,7 +67,6 @@ int main(int argc, char* argv) {
 	/* 1 SIGNER_SUBJECT_INFO */
 	SIGNER_FILE_INFO signerFileInfo;
 	signerFileInfo.cbSize = sizeof(SIGNER_FILE_INFO);
-	//signerFileInfo.pwszFileName = L"C:\\Users\\rango\\Downloads\\iii.exe";
 	signerFileInfo.pwszFileName = fileToSign;
 	signerFileInfo.hFile = NULL;
 
@@ -150,8 +149,6 @@ int main(int argc, char* argv) {
 
 		pSipData = &clientData;
 	}
-	
-
 
 	HMODULE hMssign32 = LoadLibrary("mssign32.dll");
 	if (hMssign32 == NULL) {
@@ -217,7 +214,7 @@ HRESULT SignCallBack(
 
 BYTE* sign(PCCERT_CONTEXT ctx, BYTE* digest, DWORD digestSize)
 {
-	/* CSP ÈÝÆ÷ÐÅÏ¢ */
+	/* CSP ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ */
 	DWORD cbSize = 0;
 	BOOL bRet = CertGetCertificateContextProperty(ctx, CERT_KEY_PROV_INFO_PROP_ID, NULL, &cbSize);
 	if (!bRet) {
@@ -233,7 +230,7 @@ BYTE* sign(PCCERT_CONTEXT ctx, BYTE* digest, DWORD digestSize)
 		return NULL;
 	}
 
-	/* Ë½Ô¿¶ÔÏó */
+	/* Ë½Ô¿ï¿½ï¿½ï¿½ï¿½ */
 	NCRYPT_PROV_HANDLE hProv = NULL;
 	SECURITY_STATUS status = NCryptOpenStorageProvider(&hProv, provider->pwszProvName, 0);
 	if (ERROR_SUCCESS != status) {
@@ -248,7 +245,7 @@ BYTE* sign(PCCERT_CONTEXT ctx, BYTE* digest, DWORD digestSize)
 		return NULL;
 	}
 
-	/* ¿ªÊ¼Ç©Ãû */
+	/* ï¿½ï¿½Ê¼Ç©ï¿½ï¿½ */
 	BCRYPT_PKCS1_PADDING_INFO paddingInfo;
 	paddingInfo.pszAlgId = L"SHA256";
 	

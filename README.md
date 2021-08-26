@@ -2,7 +2,7 @@
 
 ## Samples
 
-* SignerSignEx3 msssign32 implicit api，support callback function for signature digest.
+* SignerSignEx3 msssign32 implicit api，support callback function for signature digest. so it can be used to sign most of PE or APPX.
 
 ## Notes
 
